@@ -1,0 +1,23 @@
+{
+  "name": "webapi-tuktuktracker",
+  "version": "1.0.0",
+  "description": "REST API for Tuk Tuk Tracking System for Sri Lanka Police",
+  "homepage": "https://github.com/MihilRana/WebAPI-TukTukTracker#readme",
+  "bugs": {
+    "url": "https://github.com/MihilRana/WebAPI-TukTukTracker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MihilRana/WebAPI-TukTukTracker.git"
+  },
+  "license": "ISC",
+  "author": "MihilRanasinghe",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
