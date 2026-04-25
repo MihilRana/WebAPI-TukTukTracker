@@ -1,14 +1,18 @@
+require('dotenv').config();
 const express = require('express');
+const connectDB = require('./src/config/database');
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+connectDB();
 
 app.get('/', (req, res) => {
   res.json({message: 'TukTuk Tracker API is running'});
 });
 
-app.listen(port, () => {
-    console.log('Server running on port ${PORT}');
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
