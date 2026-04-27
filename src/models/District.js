@@ -12,7 +12,7 @@ const districtSchema = new mongoose.Schema({
         required: true
     },
     code: {
-        time: String,
+        type: String,
         required: true,
         unique: true,
         uppercase: true,
@@ -22,4 +22,4 @@ const districtSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Districts', districtSchema);
+module.exports = mongoose.model('District', districtSchema);
