@@ -5,6 +5,13 @@ const morgan = require('morgan');
 const connectDB = require('./src/config/database');
 const errorHandler = require('./src/middleware/errorHandler');
 const authRoutes = require('./src/routes/authRoutes');
+const provinceRoutes = require('./src/routes/provinceRoutes');
+const districtRoutes = require('./src/routes/districtRoutes');
+const policeStationRoutes = require('./src/routes/policeStationRoutes');
+const vehicleRoutes = require('./src/routes/vehicleRoutes');
+const driverRoutes = require('./src/routes/driverRoutes');
+
+require('./src/models/Driver');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +35,11 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/provinces', provinceRoutes);
+app.use('/api/districts', districtRoutes);
+app.use('/api/stations', policeStationRoutes);
+app.use('/api/vehicles', vehicleRoutes);
+app.use('/api/drivers', driverRoutes);
 
 app.use(errorHandler);
 
