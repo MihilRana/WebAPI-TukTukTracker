@@ -10,6 +10,7 @@ const districtRoutes = require('./src/routes/districtRoutes');
 const policeStationRoutes = require('./src/routes/policeStationRoutes');
 const vehicleRoutes = require('./src/routes/vehicleRoutes');
 const driverRoutes = require('./src/routes/driverRoutes');
+const locationRoutes = require('./src/routes/locationRoutes');
 
 require('./src/models/Driver');
 
@@ -40,6 +41,7 @@ app.use('/api/districts', districtRoutes);
 app.use('/api/stations', policeStationRoutes);
 app.use('/api/vehicles', vehicleRoutes);
 app.use('/api/drivers', driverRoutes);
+app.use('/api/locations', locationRoutes);
 
 app.use(errorHandler);
 
