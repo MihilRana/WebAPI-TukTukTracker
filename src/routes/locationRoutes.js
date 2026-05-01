@@ -8,18 +8,23 @@ const {
     getLiveLocations
 } = require('../controllers/locationController');
 const { authenticate, authorize } = require('../middleware/auth');
+const { pingLimiter } = require('../middleware/rateLimiter');
+const { validateLocationPing } = require('../middleware/validate');
 
 router.use(authenticate);
 
 router.post(
     '/ping',
     authorize('operator', 'superadmin'),
+    pingLimiter,
+    validateLocationPing,
     createLocationPing
 );
 
 router.post(
     '/ping/bulk',
     authorize('operator', 'superadmin'),
+    pingLimiter,
     createBulkPings
 );
 
