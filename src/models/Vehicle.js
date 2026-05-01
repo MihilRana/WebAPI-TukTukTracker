@@ -21,7 +21,7 @@ const vehicleSchema = new mongoose.Schema({
     make: {
         type: String,
         trim: true
-    }, 
+    },
     model: {
         type: String,
         trim: true

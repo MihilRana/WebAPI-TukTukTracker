@@ -84,7 +84,7 @@ const seedAll = async () => {
             contactNumber: s.contactNumber,
             address: s.address
         }));
-        
+
         const createdStations = await PoliceStation.insertMany(stationsWithRefs);
         console.log(`Seeded ${createdStations.length} police stations`);
 
@@ -96,7 +96,7 @@ const seedAll = async () => {
             const districtId = districtIds[i % districtIds.length];
             const firstName = getRandomItem(firstNames);
             const lastName = getRandomItem(lastNames);
-        
+
             const driver = {
                 firstName: firstName,
                 lastName: lastName,
@@ -126,7 +126,7 @@ const seedAll = async () => {
             };
             vehicles.push(vehicle);
         }
-        
+
         const createdVehicles = await Vehicle.insertMany(vehicles);
         console.log(`Seeded ${createdVehicles.length} vehicles`);
 
@@ -136,7 +136,7 @@ const seedAll = async () => {
         console.log(`  Police Stations: ${createdStations.length}`);
         console.log(`  Drivers: ${createdDrivers.length}`);
         console.log(`  Vehicles: ${createdVehicles.length}`);
-        
+
         process.exit(0);
     } catch (error) {
         console.error('Seeding error:', error.message);
