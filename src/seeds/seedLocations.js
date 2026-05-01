@@ -50,13 +50,12 @@ function generateDayPings(vehicleId, date, startLat, startLng) {
     let currentLat = startLat;
     let currentLng = startLng;
 
-    const hour = date.getHours !== undefined ? date : new Date(date);
     const startHour = 6 + Math.floor(Math.random() * 3);
     const endHour = 19 + Math.floor(Math.random() * 4);
 
     for (let h = startHour; h <= endHour; h++) {
         const pingsThisHour = Math.floor(Math.random() * 4) + 1;
-    
+
         for (let p = 0; p < pingsThisHour; p++) {
             const minute = Math.floor(Math.random() * 60);
             const second = Math.floor(Math.random() * 60);
@@ -118,21 +117,21 @@ const seedLocations = async () => {
                 for (let d = DAYS_BACK; d >= 0; d--) {
                     const date = new Date(today);
                     date.setDate(date.getDate() - d);
-          
+
                     if (Math.random() < 0.15) continue;
-                
+
                     const result = generateDayPings(vehicle._id, date, currentLat, currentLng);
                     allPings = allPings.concat(result.pings);
                     currentLat = result.lastLat;
                     currentLng = result.lastLng;
                 }
             }
-            
+
             if (allPings.length > 0) {
                 await LocationPing.insertMany(allPings);
                 totalPings += allPings.length;
             }
-        
+
             console.log(`Progress: ${Math.min(i + batchSize, vehicles.length)}/${vehicles.length} vehicles processed (${totalPings} pings so far)`);
         }
 
@@ -140,7 +139,7 @@ const seedLocations = async () => {
         console.log(`Total pings generated: ${totalPings}`);
         console.log(`Vehicles covered: ${vehicles.length}`);
         console.log(`Days covered: ${DAYS_BACK + 1}`);
-    
+
         process.exit(0);
     } catch (error) {
         console.error('Seeding error:', error.message);
