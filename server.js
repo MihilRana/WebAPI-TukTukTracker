@@ -14,6 +14,8 @@ const policeStationRoutes = require('./src/routes/policeStationRoutes');
 const vehicleRoutes = require('./src/routes/vehicleRoutes');
 const driverRoutes = require('./src/routes/driverRoutes');
 const locationRoutes = require('./src/routes/locationRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./src/config/swagger');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -46,6 +48,10 @@ app.use('/api/stations', policeStationRoutes);
 app.use('/api/vehicles', vehicleRoutes);
 app.use('/api/drivers', driverRoutes);
 app.use('/api/locations', locationRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  customSiteTitle: 'TukTuk Tracker API Documentation'
+}));
 
 app.use((req, res) => {
   res.status(404).json({
