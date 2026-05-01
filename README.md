@@ -48,7 +48,7 @@ A RESTful API for tracking tuk-tuk locations across Sri Lanka. Built for law enf
 5. Start the server: `npm start`
 
 ## Deployed API
-URL: TBA
+URL: https://webapi-tuktuktracker.onrender.com
 
 ## API Documentation
-Swagger: TBA
+Swagger: https://webapi-tuktuktracker.onrender.com/api-docs/

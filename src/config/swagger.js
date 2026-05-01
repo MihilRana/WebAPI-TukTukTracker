@@ -13,8 +13,12 @@ const options = {
         },
         servers: [
             {
-                url: process.env.API_URL || 'http://localhost:3000',
-                description: process.env.NODE_ENV === 'production' ? 'Production server' : 'Development server'
+                url: 'https://webapi-tuktuktracker.onrender.com',
+                description: 'Production server'
+            },
+            {
+                url: 'http://localhost:3000',
+                description: 'Development server'
             }
         ],
         components: {
