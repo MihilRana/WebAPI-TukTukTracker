@@ -26,7 +26,7 @@ const locationPingSchema = new mongoose.Schema({
         min: 0,
         max: 360
     },
-    recoardedAt: {
+    recordedAt: {
         type: Date,
         required: true,
         default: Date.now
@@ -36,6 +36,6 @@ const locationPingSchema = new mongoose.Schema({
 });
 
 locationPingSchema.index({location: '2dsphere'});
-locationPingSchema.index({vehicle: 1, recoardedAt: -1});
+locationPingSchema.index({vehicle: 1, recordedAt: -1});
 
 module.exports = mongoose.model('LocationPing', locationPingSchema);
